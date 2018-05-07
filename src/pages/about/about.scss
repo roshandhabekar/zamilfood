@@ -1,3 +1,26 @@
 page-about {
-
+    ion-textarea{
+        width: 100%;
+        background: #242424;
+        border-top: none;
+        border-right: none;
+        border-left: none;
+        resize: none;
+        padding-left:11px;
+        border-color: #191919;
+    }
+   
+    #myInput {
+        width: calc(100% - 10px);
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+    }
+    .header-image {
+        height: 40vh;
+    }
+    .main-content {
+        padding-top: 20px;
+        background: #191919;
+    }
 }

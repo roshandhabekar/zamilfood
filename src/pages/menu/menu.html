@@ -5,75 +5,48 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar>
-    <button ion-button menuToggle left>
-        <ion-icon color="primary" menuToggle name="menu"></ion-icon>
-    </button>
-    <ion-title>Menu</ion-title>
+    <ion-list (click)="showAlert();" *ngIf="!isAdmin">
+      <ion-item>
+        <ion-label>{{'Select_City' | translate}}</ion-label>
+        <ion-select [(ngModel)]="cityname" (ionChange)="onChange();" [disabled]="selected" [okText]="selectLanguage['Ok']" [cancelText]="selectLanguage['Cancel']">
+          <div *ngIf="default_language=='en'">
+            <ion-option [value]="item.city" *ngFor="let item of citylist |  async">{{item.city}}</ion-option>
+          </div>
+          <div *ngIf="default_language!='en'">
+            <ion-option [value]="item.city" *ngFor="let item of citylist |  async" >{{item.cityArbic}}</ion-option>
+          </div>
+        </ion-select>
+      </ion-item>
+    </ion-list>
   </ion-navbar>
 
 </ion-header>
 
-
 <ion-content no-padding>
-
-
+  <spinner *ngIf="loader"></spinner>
+  <div class="container4" *ngIf="result2?.length == 0 && !loader">
+    <h2>
+      {{'notAvailabel' | translate}}
+    </h2>
+  </div>
   <div class="card-background-page">
     <ion-grid no-padding>
       <ion-row no-padding>
-        <ion-col no-padding col-6 col-md-4 (click)="viewListingByCategory('Chiken')">
+        <ion-col no-padding col-6 col-md-4 *ngIf="isAdmin" (click)="addNewCategory()">
           <ion-card no-margin>
-            <img src="assets/imgs/1.png" />
-            <div class="card-title">Chiken</div>
-            <div class="card-subtitle">28 Listings</div>
+            <img src="assets/imgs/plus.png" class="custom-opacity" />
+            <div class="card-title">{{'Add_new' | translate}}</div>
           </ion-card>
         </ion-col>
-        <ion-col no-padding col-6 col-md-4 (click)="viewListingByCategory('Chiken')">
+        <ion-col no-padding col-6 col-md-4 *ngFor="let item of result2" (click)="viewListingByCategory(item.Name,item.key)">
           <ion-card no-margin>
-            <img src="assets/imgs/2.png" />
-            <div class="card-title">Beef</div>
-            <div class="card-subtitle">72 Listings</div>
-          </ion-card>
-        </ion-col>
-
-        <ion-col no-padding col-6 col-md-4 (click)="viewListingByCategory('Fish')">
-          <ion-card no-margin>
-            <img src="assets/imgs/3.png" />
-            <div class="card-title">Fish</div>
-            <div class="card-subtitle">41 Listings</div>
-          </ion-card>
-        </ion-col>
-        <ion-col no-padding col-6 col-md-4 (click)="viewListingByCategory('Fish')">
-          <ion-card no-margin>
-            <img src="assets/imgs/4.png" />
-            <div class="card-title">Cold Cuts</div>
-            <div class="card-subtitle">41 Listings</div>
-          </ion-card>
-        </ion-col>
-        <ion-col no-padding col-6 col-md-4 (click)="viewListingByCategory('Fish')">
-          <ion-card no-margin>
-            <img src="assets/imgs/5.png" />
-            <div class="card-title">Oriental</div>
-            <div class="card-subtitle">41 Listings</div>
-          </ion-card>
-        </ion-col>
-        <ion-col no-padding col-6 col-md-4 (click)="viewListingByCategory('Fish')">
-          <ion-card no-margin>
-            <img src="assets/imgs/chicken-product.png" />
-            <div class="card-title">Dessrts</div>
-            <div class="card-subtitle">41 Listings</div>
-          </ion-card>
-        </ion-col>
-        <ion-col no-padding col-6 col-md-4 (click)="viewListingByCategory('Fish')">
-          <ion-card no-margin>
-            <img src="assets/imgs/beef-product.png" />
-            <div class="card-title">Salads</div>
-            <div class="card-subtitle">41 Listings</div>
+            <img src="{{item.ImagePath}}" class="custom-opacity" />
+            <div *ngIf="default_language=='en'" class="card-title">{{item.Name}}</div>
+            <div *ngIf="default_language!='en'" class="card-title">{{item.ArabicName}}</div>
           </ion-card>
         </ion-col>
       </ion-row>
     </ion-grid>
-
   </div>
 </ion-content>

@@ -5,17 +5,28 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar>
-      <button ion-button menuToggle left>
+      <!-- <button ion-button menuToggle left>
           <ion-icon color="primary" menuToggle name="menu"></ion-icon>
-      </button>
+      </button> -->
     <ion-title>Contact</ion-title>
   </ion-navbar>
-
 </ion-header>
 
+<ion-content >
+  <ion-list>
+    <ion-item>
+      <ion-label>Name</ion-label>
+      <ion-input type="text" [(ngModel)]="name"></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item>
+      <ion-label>Email Id</ion-label>
+      <ion-input type="email" [(ngModel)]="email"></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-textarea rowS="4" autosize placeholder="Message" [(ngModel)]="message" style="background:#242424;"></ion-textarea>
 
-<ion-content padding>
-
+  <button ion-button color="button-Clr" class="button-design" full (click)="sent()">Send</button>
 </ion-content>

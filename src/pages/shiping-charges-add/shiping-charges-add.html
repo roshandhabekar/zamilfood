@@ -1,0 +1,26 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Add Shiping Charges </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label>Select City</ion-label>
+      <ion-select [(ngModel)]="cityname">
+        <ion-option  *ngFor="let item of citylist | getKeys" [value]>{{citylist[item]['city']}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating color="primary">Shiping Charges</ion-label>
+      <ion-input type="number" [(ngModel)]="Charges"></ion-input>
+    </ion-item>
+  </ion-list>
+  <button ion-button color="button-Clr"  class="button-design" full (click)="SaveCharges(cityname)">Save Charges</button>
+</ion-content>

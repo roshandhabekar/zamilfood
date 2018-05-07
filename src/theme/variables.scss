@@ -9,7 +9,7 @@ $font-path: "../assets/fonts";
 // The app direction is used to include
 // rtl styles in your app. For more info, please see:
 // http://ionicframework.com/docs/theming/rtl-support/
-$app-direction: ltr;
+$app-direction: multi;
 
 
 @import "ionic.globals";
@@ -34,12 +34,15 @@ $app-direction: ltr;
 // The "primary" color is the only required color in the map.
 
 $colors: (
-  primary:    #2ecc71,
+  primary:    #299826,
   secondary:  #d35400,
   danger:     #f53d3d,
   light:      #FAEBD7,
   dark:       #222,
-  flatgreen:#3c7a4d
+  flatgreen:#3c7a4d,
+  button-Clr:#191919,
+  light-dark:#363636
+
 );
 
 
@@ -54,7 +57,13 @@ $colors: (
 // --------------------------------------------------
 // Material Design only Sass variables can go here
 $fab-list-button-background-color:#d35400;
+$searchbar-md-input-background-color:color($colors,light-dark);
+$searchbar-md-input-text-color:color($colors,primary);
+$searchbar-ios-input-text-color:color($colors,primary);
 
+$text-input-placeholder-color:color($colors,primary);
+$toast-ios-title-color:color($colors,primary);
+$toast-core-title-color:color($colors,primary);
 
 
 // App Windows Variables

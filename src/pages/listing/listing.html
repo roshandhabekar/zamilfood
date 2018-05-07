@@ -5,23 +5,50 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar>
     <ion-title>{{title}}</ion-title>
+    <ion-buttons right *ngIf="IsAdmin">
+      <button (click)="editCategory()" ion-button color="button-Clr" class="admin-login-icon">
+        <ion-icon name="md-create" padding-right></ion-icon>
+      </button>
+      <button (click)="DeleteCategory()" ion-button color="button-Clr" class="admin-login-icon">
+        <ion-icon name="trash" padding-right></ion-icon>
+      </button>
+      <button (click)="addItemToListing()" ion-button color="button-Clr" class="admin-login-icon">
+        <ion-icon name="add" padding-right></ion-icon>
+      </button>
+    </ion-buttons>
+
   </ion-navbar>
+
 
 </ion-header>
 
-
-<ion-content>
-    <ion-list>
-        <ion-item>
-          <ion-thumbnail item-start>
-            <img src="assets/imgs/thumb.png">
-          </ion-thumbnail>
-          <h2>My Neighbor Totoro</h2>
-          <p>Hayao Miyazaki • 1988</p>
-          <button ion-button clear item-end>View</button>
-        </ion-item>
-      </ion-list>
+<ion-content parallax-header>
+    <spinner *ngIf="loader"></spinner>
+  <div class="header-image">
+    <img [src]="url" width="100%" style="height:40vh;" *ngIf="url !=''">
+  </div>
+  <div class="main-content" style="width:100%;">
+    <p *ngIf="itemlist == ''" class="no-value">No Item Available</p>
+    <ion-list *ngFor="let data of itemlist | getKeys">
+      <ion-item *ngIf="default_language=='en'" (click)="fooddetails(itemlist[data]['key'],itemlist[data]['Name'])">
+        <ion-thumbnail item-start>
+          <img [src]="itemlist[data]['ImagePath']">
+        </ion-thumbnail>
+        <h2 text-capitalize>{{itemlist[data]['Name']}}</h2>
+        <p>{{itemlist[data]['Description']}}</p>
+        <button ion-button clear item-end>SAR {{itemlist[data]['Price']}}</button>
+      </ion-item>
+      <ion-item  *ngIf="default_language!='en'" (click)="fooddetails(itemlist[data]['key'],itemlist[data]['NameArabic'])">
+        <ion-thumbnail item-start>
+          <img [src]="itemlist[data]['ImagePath']">
+        </ion-thumbnail>
+        <h2 text-capitalize>{{itemlist[data]['NameArabic']}}</h2>
+        <p>{{itemlist[data]['DescriptionArabic']}}</p>
+        <button ion-button clear item-end>{{'SAR' | translate}} {{itemlist[data]['Price']}}</button>
+      </ion-item>
+     
+    </ion-list>
+  </div>
 </ion-content>

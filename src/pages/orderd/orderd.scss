@@ -1,0 +1,18 @@
+page-orderd {
+    div.container4 { 
+        position: relative;
+        top: 50%;
+     } 
+     div.container4 h2 {
+        margin: 0;
+        color:#299826;
+        font-size: 1.6rem;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        text-align: center;
+        }
+}

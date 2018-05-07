@@ -1,0 +1,39 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title padding-left>Orders</ion-title>
+    <!-- <ion-buttons right (click)="logout()">
+        <button ion-button color="button-Clr" class="admin-login-icon">
+          <ion-icon name="power" padding-right></ion-icon>
+        </button>
+      </ion-buttons> -->
+     
+  </ion-navbar>
+  <ion-toolbar color="dark">
+      <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+    <div class="container4" *ngIf="orderList?.length == 0 && !loader">
+        <h2>
+          No data Found
+        </h2>
+      </div>
+  <spinner *ngIf="loader"></spinner>
+    <ion-list *ngFor="let data of orderList | reverse; let i=index;">
+      <ion-item (click)="ViewOrderAdmin(data.clientid,data.orderkey,data)">
+        <!-- {{data.clientid}}    ====  {{data.orderkey}} -->
+        <h2>{{data.Name | uppercase}}</h2>
+        <p>{{data.OrderDeliveryAddress}}</p>
+        <p>{{data.orderId}}</p>
+        <div item-end text-center>
+          <ion-icon name="cart" item-end color="primary"></ion-icon>
+          <p color="secondary">View</p>
+        </div>
+      </ion-item>
+    </ion-list>
+
+
+</ion-content>

@@ -1,0 +1,33 @@
+<!--
+  Generated template for the VisionPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{'Vision'| translate }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <spinner *ngIf="loader"></spinner>
+  <img src="assets/imgs/cate.jpg" *ngIf="!loader" style="height:40vh;" width="100%" />
+  <div *ngIf="!loader">
+    <p class="custom-label" margin-left>{{'OurVision'| translate }}</p>
+    <ion-textarea autosize [(ngModel)]="ourvision" [disabled]="isadmin" class="custom-text-color" placeholder="{{'our_vision' | translate}}" ></ion-textarea>
+    <p class="custom-label" margin-left>{{'OurMission'| translate }}</p>
+    <ion-textarea autosize [(ngModel)]="ourmission" [disabled]="isadmin" class="custom-text-color" placeholder="{{'our_mission' | translate}}"></ion-textarea>
+    <p class="custom-label" margin-left>{{'OurValues'| translate }}</p>
+    <ion-textarea autosize [(ngModel)]="ourvalues" [disabled]="isadmin" class="custom-text-color" placeholder="{{'our_values' | translate}}"></ion-textarea>
+    <button ion-button color="button-Clr" class="button-design" full (click)="save()" *ngIf="!isadmin">{{'Save'|translate}}</button>
+  </div>
+</ion-content>
+<ion-footer (click)="login()" *ngIf="default_language == 'en'">
+  <div style="color: #2ecc71;text-align: center;" padding>
+    © 2018 Powered by ZamilFoodIndustries
+  </div>
+</ion-footer>

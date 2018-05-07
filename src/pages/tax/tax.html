@@ -1,0 +1,26 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Taxes</ion-title>
+    <ion-buttons right>
+      <button (click)="addTax();" ion-button color="button-Clr" class="admin-login-icon">
+        <ion-icon name="add" padding-right></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <spinner *ngIf="loader"></spinner>
+  <ion-list>
+    <ion-item padding-left *ngFor="let data of taxList |getKeys" (click)="viewTax(data);">
+      <h2> {{taxList[data]['taxname']}} </h2>
+      <button ion-button clear item-end>
+        {{taxList[data]['percentage']}}
+      </button>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

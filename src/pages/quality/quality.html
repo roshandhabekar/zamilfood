@@ -1,0 +1,35 @@
+<!--
+  Generated template for the QualityPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{'Quality'| translate}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <spinner *ngIf="loader"></spinner>
+  <div class="image-upload" *ngIf="!isadmin">
+    <label for="file-input">
+      <img src="assets/imgs/plus.png" *ngIf="!selectedPhoto " style="height:40vh;" width="100%" />
+      <img [src]="selectedPhoto" *ngIf="selectedPhoto" style="height:40vh;" width="100%" />
+    </label>
+    <input id="file-input" type="file" (change)="filechoose($event)" accept="image/x-png, image/jpeg" />
+  </div>
+  <div class="image-upload" *ngIf="isadmin">
+    <label for="file-input">
+      <img [src]="selectedPhoto" *ngIf="selectedPhoto" style="height:40vh;" width="100%" />
+    </label>
+  </div>
+  <div class="main-content" style="width:100%;padding-top:0px;">
+    <p class="custom-label" margin-left>{{'Quality'| translate}}</p>
+    <ion-textarea autosize [(ngModel)]="quality" [disabled]="true" class="custom-text-color" placeholder="{{'Quality_text' | translate}}"></ion-textarea>
+    <button ion-button color="button-Clr" class="button-design" full (click)="save()" *ngIf="!isadmin">Save</button>
+  </div>
+</ion-content>

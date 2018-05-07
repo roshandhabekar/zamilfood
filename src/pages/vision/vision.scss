@@ -1,0 +1,15 @@
+page-vision {
+    textarea{
+        width: 100%;
+        background: #242424;
+        border-top: none;
+        border-right: none;
+        border-left: none;
+        resize: none;
+        padding-left:11px;
+    }
+
+    .footer-md::before{
+        background-image:none !important;
+    }
+}

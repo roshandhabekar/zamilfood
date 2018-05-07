@@ -1,0 +1,43 @@
+<ion-header>
+
+    <ion-navbar>
+      <ion-title>Add City</ion-title>
+  
+      <ion-buttons right *ngIf="key !='' ">
+        <button (click)="delete()" ion-button color="button-Clr" class="admin-login-icon">
+          <ion-icon name="trash" padding-right></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content>
+    <ion-list>
+      <ion-item>
+        <ion-label floating color="primary">City Name</ion-label>
+        <ion-input type="text" [(ngModel)]="city" text-capitalize></ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-list>
+      <ion-item>
+        <ion-label floating color="primary">City Name In Arabic</ion-label>
+        <ion-input type="text" [(ngModel)]="cityArbic" text-capitalize></ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-list> 
+      <ion-item>
+        <ion-label floating color="primary">Country Name</ion-label>
+        <ion-input type="text" [(ngModel)]="country" text-capitalize></ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-list>
+      <ion-item>
+        <ion-label floating color="primary">Country Name In Arabic</ion-label>
+        <ion-input type="text" [(ngModel)]="countryArabic" text-capitalize></ion-input>
+      </ion-item>
+    </ion-list>
+    <button ion-button color="button-Clr" *ngIf="key ==''" class="button-design" full (click)="SaveCity()">Save Item</button>
+    <button ion-button color="button-Clr" *ngIf="key !=''" class="button-design" full (click)="EditCity()">Save Item</button>
+  </ion-content>

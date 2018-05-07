@@ -1,0 +1,32 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Add Tax</ion-title>
+    <ion-buttons right>
+      <!-- <button (click)="delete()" ion-button color="button-Clr" class="admin-login-icon">
+        <ion-icon name="trash" padding-right></ion-icon>
+      </button> -->
+    </ion-buttons>
+  
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label floating color="primary">Tax Name</ion-label>
+      <ion-input type="text" [(ngModel)]="taxname" readonly text-uppercase></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating color="primary">Tax Percentage (%)</ion-label>
+      <ion-input type="number" [(ngModel)]="percentage"></ion-input>
+    </ion-item>
+  </ion-list>
+  <button ion-button color="button-Clr"  class="button-design" full (click)="SaveTax()">Save Tax</button>
+  <!-- <button ion-button color="button-Clr" class="button-design" full (click)="update()">Save Tax</button> -->
+
+
+</ion-content>

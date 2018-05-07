@@ -4,8 +4,85 @@
     padding: 10px;
     font-size: 22px;
 }
+.no-value{
+    top: 50%;
+    text-align: center; 
+}
+.button-design{
+    padding-top: 4rem;
+    box-shadow: none;
+    margin-top: 3rem;
+    padding-bottom: 4rem;
+    color: #2ecc71;
+}
+.admin-login-icon{
+    color: #2ecc71;
+    font-size: 25px;
+}
+.custom-label{
+    color :#999999 ;
+    font-size: 1.6rem;
+}
+.custom-text-color{
+    color: #299826 !important;
+    font-size: 1.6rem !important;
+    line-height: 2.5rem;
+    background: #242424;
+}
+.list-md .item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child, .list-md .item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child{
+    border-bottom-color: #151515;
+    box-shadow:inset 0 -1px 0 0 #242424;
+}
+textarea:focus {
+    outline: none !important;
+    border-bottom:1px solid #2ecc71;
+}
+textarea{
+    border-color: #191919;
+    color:#299826;
+}
+.list-md .item-input:last-child{
+    border-bottom: 1px solid #242424;
+}
+ion-title{
+    text-transform: capitalize;
+}
+h2,p{
+    white-space: normal;
+}
+.toolbar-background {
+    border-color: #1a5f2d;
+    background-color: #1a5f2d;
+}
+.text-input[disabled] {
+    opacity: 1 !important;
+    color: #299826;
+}
+.text-input[disabled] {
+    opacity: 1;
+}.item{
+    color: #299826;
+}
+[dir="ltr"] ion-app.ios [padding-left]{
+    padding: 0px !important;
+}
+[dir="rtl"] ion-app.ios [padding-left]{
+    padding: 0px !important;
+}
+::placeholder {
+    color: #299826;
+}
 
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color: #299826;
+}
 
+::-ms-input-placeholder { /* Microsoft Edge */
+   color: #299826;
+}
+.header-image {
+    height: 40vh;
+}
 // App Global Sass
 // --------------------------------------------------
 // Put style rules here that you want to apply globally. These

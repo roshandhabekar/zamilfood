@@ -1,0 +1,40 @@
+<ion-header>
+
+  <ion-navbar>
+    <!-- <button ion-button menuToggle left>
+          <ion-icon color="primary" menuToggle name="menu"></ion-icon>
+      </button> -->
+    <ion-title padding-left>{{'Orders'|translate}}</ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <div class="container4" *ngIf="!items && !loader">
+    <h2>
+        {{'Order_Place'|translate}} .
+    </h2>
+  </div>
+  <spinner *ngIf="loader"></spinner>
+  <div *ngIf="!loader">
+    <ion-list *ngFor="let key of items | getKeys | reverse;let i =index">
+      <ion-item (click)="veiwOrderUser(key)">
+        <ion-thumbnail item-start>
+          <img [src]="items[key]['imgPath']" height="50px" width="50px">
+        </ion-thumbnail>
+        <h2 text-capitalize>{{items[key]['Name']}}</h2>
+        <p>{{items[key]['Email']}}</p>
+        <button ion-button clear item-end>
+          <h2 style="font-size:1.4rem;">{{'View' | translate}}</h2>
+        </button>
+      </ion-item>
+      <!-- <ion-item style="padding-left:10rem;">
+            <ion-icon name="ios-remove-circle-outline" padding-left padding-right style="font-size:3rem;" (click)="removeItem(key)"></ion-icon>
+            <span style="position: relative;top: -6px;font-size:1.4rem;margin-right:25px;margin-left:25px;">{{cartData[key]['Quantity']}}</span>
+            <ion-icon name="ios-add-circle-outline" padding-left padding-right style="font-size:3rem;" (click)="addItem(key)"></ion-icon>
+            <ion-icon name="ios-trash-outline" item-right padding-left padding-right style="font-size:3rem;" (click)="deleteItem(key)"></ion-icon>
+          </ion-item> -->
+    </ion-list>
+  </div>
+</ion-content>

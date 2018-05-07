@@ -1,0 +1,100 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{'Order_Details'|translate}}</ion-title>
+      <ion-buttons start>
+        <button ion-button (click)="dismiss()">
+          <span color="primary" showWhen="ios">Cancel</span>
+          <ion-icon name="md-close" showWhen="android,windows,core"></ion-icon>
+        </button>
+      </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <div>
+    <ion-list *ngFor="let key of itemList | getKeys">
+      <ion-item>
+        <ion-thumbnail item-start>
+          <img [src]="itemList[key]['imgPath']" height="50px" width="50px">
+        </ion-thumbnail>
+        <h2 *ngIf="default_language == 'en'">{{itemList[key]['Name']}}</h2>
+        <h2 *ngIf="default_language == 'hr'">{{itemList[key]['NameArbic']}}</h2>
+        <p *ngIf="default_language == 'en'">{{itemList[key]['Description']}}</p>
+        <p *ngIf="default_language == 'hr'">{{itemList[key]['DescriptionArabic']}}</p>
+          <h2>{{itemList[key]['price']}}
+          <ion-icon name="close" margin-left margin-right></ion-icon>
+          {{itemList[key]['Quantity']}}
+        </h2>
+      </ion-item>
+    </ion-list>
+    <p class="custom-label" margin-left>{{'Invoice'|translate}}</p>
+
+    <ion-list>
+      <ion-item>
+        <ion-label tex-left>{{'Subtotal'|translate}}</ion-label>
+        <ion-label text-right class="cart-lable">{{'SAR' | translate}} &nbsp;: </ion-label>
+        <ion-label text-right class="cart-lable">&nbsp;{{item.Subtotal}}</ion-label>
+      </ion-item>
+    </ion-list>
+    <ion-list>
+      <ion-item>
+        <ion-label tex-left>{{'Shipping'|translate}}</ion-label>
+        <ion-label text-right class="cart-lable">{{'SAR' | translate}} &nbsp;: </ion-label>
+        <ion-label text-right class="cart-lable">&nbsp;{{item.ShipingCharge}}</ion-label>
+      </ion-item>
+    </ion-list>
+    <ion-list>
+      <ion-item>
+        <ion-label tex-left>{{'Tax'|translate}}(5%)</ion-label>
+        <ion-label text-right class="cart-lable">{{'SAR' | translate}} &nbsp;: </ion-label>
+        <ion-label text-right class="cart-lable">&nbsp;{{item.Tax}}</ion-label>
+      </ion-item>
+    </ion-list>
+    <ion-list>
+      <ion-item>
+        <ion-label tex-left>{{'Total'|translate}}</ion-label>
+        <ion-label text-right class="cart-lable">{{'SAR' | translate}} &nbsp;: </ion-label>
+        <ion-label text-right class="cart-lable">&nbsp;{{item.Price}}</ion-label>
+      </ion-item>
+    </ion-list>
+    <ion-list>
+      <ion-item>
+        <ion-label tex-left>{{'Payment_Method'|translate}}</ion-label>
+        <ion-label text-right>{{'Cash' | translate}}</ion-label>
+      </ion-item>
+    </ion-list>
+    <p class="custom-label" margin-left>{{'Shipping'|translate}}</p>
+    <ion-list>
+      <ion-item>
+        <ion-label>{{'Name'|translate}}</ion-label>
+        <ion-input type="text" [(ngModel)]="item.Name" [disabled]="true" ></ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-list>
+      <ion-item>
+        <ion-label>{{'Email_Id'|translate}}</ion-label>
+        <ion-input type="text" [(ngModel)]="item.Email" [disabled]="true" ></ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-list>
+      <ion-item>
+        <ion-label>{{'Contact_No'|translate}}</ion-label>
+        <ion-input type="number" [(ngModel)]="item.Phone" [disabled]="true" ></ion-input>
+      </ion-item>
+    </ion-list>
+    <p class="custom-label" margin-left>{{'DeliveryAddress'|translate}}</p>
+    <ion-textarea autosize [(ngModel)]="item.OrderDeliveryAddress" [disabled]="true" class="custom-text-color"></ion-textarea>
+    <p class="custom-label" margin-left *ngIf="item.OrderInstruction != '' ">{{'OrderInstruction'|translate}}</p>
+    <ion-textarea autosize [(ngModel)]="item.OrderInstruction" [disabled]="true" class="custom-text-color" *ngIf="item.OrderInstruction != '' "></ion-textarea>
+    <!-- <textarea rows="3" placeholder="Order instruction (optional)" [(ngModel)]="item.OrderInstruction"></textarea>
+          <textarea rows="3" placeholder="Delivery Address" margin-top [(ngModel)]="item.OrderDeliveryAddress"></textarea>  -->
+    <!-- <button ion-button color="button-Clr" class="button-design" full *ngIf="item.Status=='Pending'" (click)="orderConfirmed()">Confirmed</button>
+          <button ion-button color="button-Clr" class="button-design" full *ngIf="item.Status=='Confirmed'" (click)="OrderDelivered()">Out for delivery</button>
+          <button ion-button color="button-Clr" class="button-design" full *ngIf="item.Status=='Processing'" (click)="OrderDelivered()">Delivered</button> -->
+    <br>
+    <br>
+    <br>
+    <br>
+  </div>
+</ion-content>

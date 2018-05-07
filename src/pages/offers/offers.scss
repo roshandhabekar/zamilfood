@@ -1,0 +1,45 @@
+page-offers {
+    .toolbar-backgroundEn {
+        .toolbar-background {
+        background-image: url('../assets/imgs/logozamilfinal.png')!important;
+       
+      }
+    }
+    .toolbar-backgroundAr {
+        .toolbar-background {
+        background-image: url('../assets/imgs/zamil-arabic.png')!important;
+       
+      }
+    }
+    ion-slide img {
+        height: 25vh !important;
+        width: auto !important;
+      }
+      ion-content {
+        z-index: 0;
+        height: 100%;
+        position: absolute;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .8) 100%); /* I added the 0.8 opacity here, to the last rgba which won't affect the child element */
+    }
+    .toolbar-background {
+        border-color: #222 !important;
+        background-color: #151515 !important;
+        background-size: contain;
+        background-position: center center;
+        background-repeat: no-repeat;
+        height:100px;
+        width:100%;
+    }
+    // .back-img{
+    //     background-image: url('../assets/imgs/6.png')!important;
+    //     // opacity: 0.6;
+    // }
+    // ion-content{
+    //     background-image: url('../assets/imgs/back-panel.png')!important;
+    //     background-repeat: no-repeat;
+    //     background-position: center center;
+    //     height: 100%;
+    //     width:100%;
+    //     // opacity: 0.5;
+    // }
+}

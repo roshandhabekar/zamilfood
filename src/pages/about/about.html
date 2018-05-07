@@ -5,17 +5,49 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
-  <ion-navbar>
-      <button ion-button menuToggle left>
+    <ion-navbar>
+        <!-- <button ion-button menuToggle left>
           <ion-icon color="primary" menuToggle name="menu"></ion-icon>
-      </button>
-    <ion-title>Zamil Food</ion-title>
-  </ion-navbar>
-
+      </button> -->
+        <ion-title>{{'About_Text' | translate}} </ion-title>
+    </ion-navbar>
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+    <spinner *ngIf="loader"></spinner>
+    <img src="assets/imgs/Chicken-Fillets.jpg" *ngIf="!loader" style="height:40vh;" width="100%" />
+    <div *ngIf="!loader">
+
+        <div class="main-content">
+
+
+            <ion-list>
+                <ion-item>
+                    <ion-label>{{'CompanyName' | translate}}</ion-label>
+                    <ion-input type="text" [(ngModel)]="name" [disabled]="isadmin" class="custom-text-color" placeholder="{{'Company_name_value' | translate}}"></ion-input>
+                </ion-item>
+            </ion-list>
+            <ion-list>
+                <ion-item>
+                    <ion-label>{{'Email_Id' | translate}}</ion-label>
+                    <ion-input type="email" [(ngModel)]="email" [disabled]="isadmin" class="custom-text-color" placeholder="{{'Zamil_Email' | translate}}"></ion-input>
+                </ion-item>
+            </ion-list>
+            <ion-list>
+                <ion-item>
+                    <ion-label>{{'Contact_No' | translate}}</ion-label>
+                    <ion-input type="number" [(ngModel)]="phoneno" [disabled]="isadmin" class="custom-text-color" placeholder="{{'Zamil_Contact' | translate}}"></ion-input>
+                </ion-item>
+            </ion-list>
+            <p class="custom-label" margin-left>{{'Address' | translate}}</p>
+
+            <ion-textarea autosize [(ngModel)]="address" [disabled]="isadmin" class="custom-text-color" placeholder="{{'Zamil_address' | translate}}"></ion-textarea>
+            <p class="custom-label" margin-left>{{'About_Text' | translate}}</p>
+            <ion-textarea autosize [(ngModel)]="about" [disabled]="isadmin" class="custom-text-color" placeholder="{{'About_zamil' | translate}}"></ion-textarea>
+            <!-- <textarea rows="15"  [(ngModel)]="about" [disabled]="isadmin" class="custom-text-color"></textarea> -->
+            <!-- <button ion-button color="button-Clr" class="button-design" full (click)="save()" *ngIf="!isadmin">Save</button> -->
+        </div>
+    </div>
 
 </ion-content>

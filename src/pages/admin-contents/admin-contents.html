@@ -1,0 +1,83 @@
+<!--
+  Generated template for the AdminContentsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title padding-left>Setups</ion-title>
+    <!-- <ion-buttons right (click)="logout()">
+      <button ion-button color="button-Clr" class="admin-login-icon">
+        <ion-icon name="power" padding-right></ion-icon>
+      </button>
+    </ion-buttons> -->
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <spinner *ngIf="loader"></spinner>
+  <ion-list margin-top>
+    <ion-item class="text" margin-bottom (click)="Modify('category');">
+      Categories
+      <ion-icon name="ios-arrow-forward" color="primary" item-right></ion-icon>
+    </ion-item>
+  </ion-list>
+  <!-- <ion-list margin-top>
+    <ion-item class="text" margin-bottom (click)="Modify('About');">
+      About Us
+      <ion-icon name="ios-arrow-forward" color="primary" item-right></ion-icon>
+    </ion-item>
+  </ion-list> -->
+  <!-- <ion-list margin-top>
+    <ion-item class="text" margin-bottom (click)="Modify('Contact');">
+      Contact Us
+      <ion-icon name="ios-arrow-forward" color="primary" item-right></ion-icon>
+    </ion-item>
+  </ion-list> -->
+  <ion-list margin-top>
+    <ion-item (click)="Modify('Quality');">
+      Our Quality
+      <ion-icon name="ios-arrow-forward" color="primary" item-end></ion-icon>
+    </ion-item>
+  </ion-list>
+  <!-- <ion-list margin-top>
+    <ion-item (click)="Modify('Vision');">
+     Our Vision
+      <ion-icon name="ios-arrow-forward" color="primary" item-end></ion-icon>
+    </ion-item>
+  </ion-list> -->
+  <ion-list margin-top>
+    <ion-item (click)="Modify('City');">
+     Citys
+      <ion-icon name="ios-arrow-forward" color="primary" item-end></ion-icon>
+    </ion-item>
+  </ion-list>
+  <ion-list margin-top>
+    <ion-item (click)="addTaxes();">
+    Taxes
+      <ion-icon name="ios-arrow-forward" color="primary" item-end></ion-icon>
+    </ion-item>
+  </ion-list>
+  <ion-list margin-top>
+    <ion-item (click)="addShipingCharges();">
+    Shipping Charges
+      <ion-icon name="ios-arrow-forward" color="primary" item-end></ion-icon>
+    </ion-item>
+  </ion-list>
+  <!-- <ion-list margin-top>
+      <ion-item (click)="languagechange()">
+       C
+        <ion-icon name="ios-arrow-forward" color="primary" item-end></ion-icon>
+      </ion-item>
+    </ion-list> -->
+  <ion-list margin-top>
+    <ion-item (click)="logout()">
+     Log Out
+      <ion-icon name="ios-arrow-forward" color="primary" item-end></ion-icon>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
