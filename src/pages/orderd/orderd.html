@@ -23,8 +23,12 @@
         <ion-thumbnail item-start>
           <img [src]="items[key]['imgPath']" height="50px" width="50px">
         </ion-thumbnail>
+        <!-- <pre>{{items[key]|json}}</pre> -->
         <h2 text-capitalize>{{items[key]['Name']}}</h2>
         <p>{{items[key]['Email']}}</p>
+        <p>{{items[key]['orderId']}}</p>
+        <p>{{items[key]['TimeOrderPlaced']}}</p>
+        
         <button ion-button clear item-end>
           <h2 style="font-size:1.4rem;">{{'View' | translate}}</h2>
         </button>

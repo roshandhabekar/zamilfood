@@ -35,7 +35,7 @@ export class CartPage {
   private cityname = '';
   private shipingCharges = 0;
   private orderid: any;
-
+  private getTime= new Date();
 
   constructor(private storage: Storage, public navCtrl: NavController,
     public navParams: NavParams, public toast: ToastController, private translateService: TranslateService,
@@ -149,6 +149,7 @@ export class CartPage {
     });
   }
   placeorder() {
+    console.log(this.getTime);
     let orderArr = {
       "Email": this.emailId,
       "Name": this.name,
@@ -160,7 +161,7 @@ export class CartPage {
       "Price": (Number(this.shipingCharges) + Number(this.totalPrice)) + ((Number(this.totalPrice) + Number(this.shipingCharges)) * (Number(this.taxVal) / 100)),
       "Tax": (Number(this.shipingCharges) + Number(this.totalPrice)) * this.taxVal / 100,
       "ShipingCharge": this.shipingCharges,
-      "TimeOrderPlaced": new Date(),
+      "TimeOrderPlaced": String(this.getTime),
       "Subtotal": this.totalPrice,
       "Status": "Pending",
       "orderId": '#Zamil' + String(this.orderid),
@@ -175,6 +176,7 @@ export class CartPage {
       if (this.totalPrice > 100) {
         this.loader = true;
         let oredrRef = firebase.database().ref("/Order" + '/' + APP_CONFIG.UID + '/' + this.userID);
+        console.log(orderArr);
             let orderDetails = oredrRef.push(orderArr);
         orderDetails.then(data => {
           let oredrRef = firebase.database().ref("/Cart" + '/' + this.userID);

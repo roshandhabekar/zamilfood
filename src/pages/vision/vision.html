@@ -19,8 +19,8 @@
   <div *ngIf="!loader">
     <p class="custom-label" margin-left>{{'OurVision'| translate }}</p>
     <ion-textarea autosize [(ngModel)]="ourvision" [disabled]="isadmin" class="custom-text-color" placeholder="{{'our_vision' | translate}}" ></ion-textarea>
-    <p class="custom-label" margin-left>{{'OurMission'| translate }}</p>
-    <ion-textarea autosize [(ngModel)]="ourmission" [disabled]="isadmin" class="custom-text-color" placeholder="{{'our_mission' | translate}}"></ion-textarea>
+    <!-- <p class="custom-label" margin-left>{{'OurMission'| translate }}</p>
+    <ion-textarea autosize [(ngModel)]="ourmission" [disabled]="isadmin" class="custom-text-color" placeholder="{{'our_mission' | translate}}"></ion-textarea> -->
     <p class="custom-label" margin-left>{{'OurValues'| translate }}</p>
     <ion-textarea autosize [(ngModel)]="ourvalues" [disabled]="isadmin" class="custom-text-color" placeholder="{{'our_values' | translate}}"></ion-textarea>
     <button ion-button color="button-Clr" class="button-design" full (click)="save()" *ngIf="!isadmin">{{'Save'|translate}}</button>

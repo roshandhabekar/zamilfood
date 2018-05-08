@@ -28,8 +28,10 @@
     </label>
   </div>
   <div class="main-content" style="width:100%;padding-top:0px;">
-    <p class="custom-label" margin-left>{{'Quality'| translate}}</p>
-    <ion-textarea autosize [(ngModel)]="quality" [disabled]="true" class="custom-text-color" placeholder="{{'Quality_text' | translate}}"></ion-textarea>
+      <p class="custom-label" margin-left>{{'OurMission'| translate }}</p>
+      <ion-textarea autosize [(ngModel)]="ourmission" [disabled]="isadmin" class="custom-text-color" placeholder="{{'our_mission' | translate}}"></ion-textarea>
+    <!-- <p class="custom-label" margin-left>{{'Quality'| translate}}</p>
+    <ion-textarea autosize [(ngModel)]="quality" [disabled]="true" class="custom-text-color" placeholder="{{'Quality_text' | translate}}"></ion-textarea> -->
     <button ion-button color="button-Clr" class="button-design" full (click)="save()" *ngIf="!isadmin">Save</button>
   </div>
 </ion-content>

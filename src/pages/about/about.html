@@ -28,6 +28,12 @@
                     <ion-input type="text" [(ngModel)]="name" [disabled]="isadmin" class="custom-text-color" placeholder="{{'Company_name_value' | translate}}"></ion-input>
                 </ion-item>
             </ion-list>
+            <p class="custom-label" margin-left>{{'About_Text' | translate}}</p>
+            <ion-textarea autosize [(ngModel)]="about" [disabled]="isadmin" class="custom-text-color" placeholder="{{'About_zamil' | translate}}"></ion-textarea>
+
+            <p class="custom-label" margin-left>{{'Address' | translate}}</p>
+
+            <ion-textarea autosize [(ngModel)]="address" [disabled]="isadmin" class="custom-text-color" placeholder="{{'Zamil_address' | translate}}"></ion-textarea>
             <ion-list>
                 <ion-item>
                     <ion-label>{{'Email_Id' | translate}}</ion-label>
@@ -40,11 +46,7 @@
                     <ion-input type="number" [(ngModel)]="phoneno" [disabled]="isadmin" class="custom-text-color" placeholder="{{'Zamil_Contact' | translate}}"></ion-input>
                 </ion-item>
             </ion-list>
-            <p class="custom-label" margin-left>{{'Address' | translate}}</p>
-
-            <ion-textarea autosize [(ngModel)]="address" [disabled]="isadmin" class="custom-text-color" placeholder="{{'Zamil_address' | translate}}"></ion-textarea>
-            <p class="custom-label" margin-left>{{'About_Text' | translate}}</p>
-            <ion-textarea autosize [(ngModel)]="about" [disabled]="isadmin" class="custom-text-color" placeholder="{{'About_zamil' | translate}}"></ion-textarea>
+           
             <!-- <textarea rows="15"  [(ngModel)]="about" [disabled]="isadmin" class="custom-text-color"></textarea> -->
             <!-- <button ion-button color="button-Clr" class="button-design" full (click)="save()" *ngIf="!isadmin">Save</button> -->
         </div>
